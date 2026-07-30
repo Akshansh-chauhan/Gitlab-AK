@@ -2,7 +2,12 @@ variables:
   IMAGE_NAME: "madmax04/devops-ak"
   IMAGE_TAG: "py-app-v1"
 
+stages:
+  - test
+  - build
+
 tests:
+  stage: test
   image: python:3.9-slim
   before_script:
     - apt-get update -y && apt-get install make -y
@@ -10,6 +15,7 @@ tests:
     - make test
 
 build:
+  stage: build
   image: docker:20.10.6
   services:
     - docker:20.10.6-dind
