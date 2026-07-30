@@ -1,6 +1,6 @@
 variables:
   IMAGE_NAME: "madmax04/devops-ak"
-  IMAGE_TAG: "py-app:v1"
+  IMAGE_TAG: "py-app-v1"
 
 tests:
   image: python:3.9-slim
@@ -18,7 +18,7 @@ build:
   before_script:
     - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
   script:
-    - docker build -t $IMAGE_NAME:$IMAGE_TAG -f /build/Dockerfile .
+    - docker build -t $IMAGE_NAME:$IMAGE_TAG -f build/Dockerfile .
     - docker push $IMAGE_NAME:$IMAGE_TAG
   after_script:
     - docker logout
