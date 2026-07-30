@@ -1,5 +1,6 @@
-IMAGE_NAME: "madmax04/devops-ak"
-IMAGE_TAG: "py-app:v1"
+variables:
+  IMAGE_NAME: "madmax04/devops-ak"
+  IMAGE_TAG: "py-app:v1"
 
 tests:
   image: python:3.9-slim
