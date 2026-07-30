@@ -6,8 +6,8 @@ LABEL org.opencontainers.image.source = "https://github.com/benc-uk/python-demoa
 ARG srcDir=src
 WORKDIR /app
 COPY $srcDir/requirements.txt .
-RUN pip install --upgrade pip --progress-bar off \
-    && pip install --no-cache-dir --progress-bar off -r requirements.txt
+ENV PIP_PROGRESS_BAR=off
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 COPY $srcDir/run.py .
 COPY $srcDir/app ./app
